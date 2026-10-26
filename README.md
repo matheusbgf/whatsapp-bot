@@ -7,7 +7,7 @@ API em Node.js para enviar mensagens de texto e imagens para grupos pelo WhatsAp
 - Node.js 22 LTS ou 24 LTS. A biblioteca `whatsapp-web.js` exige Node.js 18 ou superior; este projeto recomenda uma versão LTS ainda suportada.
 - Acesso à internet na instalação das dependências e na conexão com o WhatsApp Web.
 
-O Puppeteer baixa uma versão compatível do Chrome durante a instalação. Se quiser usar um Chrome/Chromium já instalado, configure `CHROME_PATH` no `.env`.
+O Puppeteer baixa uma versão compatível do Chrome durante a instalação. O script usa `CHROME_PATH` quando configurado; sem isso, procura Chrome/Chromium nos caminhos padrão do Windows e Linux e, se não encontrar, usa o navegador baixado pelo Puppeteer.
 
 ## Instalação
 
@@ -64,7 +64,7 @@ O servidor escuta em todas as interfaces, mas aceita chamadas somente de endere�
 
 ## Configuração do Chrome
 
-Normalmente não é necessário configurar `CHROME_PATH`: o Puppeteer usa a versão do Chrome instalada junto às dependências. Para usar uma instalação do sistema, defina no `.env` o caminho completo do executável, por exemplo:
+O script detecta Chrome/Chromium instalado nos caminhos padrão. Configure `CHROME_PATH` no `.env` para escolher outro executável ou um caminho fora desses locais:
 
 ```dotenv
 CHROME_PATH=C:/Program Files/Google/Chrome/Application/chrome.exe
